@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://libs.zappar.com/zappar-aframe/0.2.4/zappar-aframe.js"></script>
+<meta charset="utf-8" />
+    <title>Zappar Example</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <a-asset-item id="mask" src="Assets/models/glb/scene.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera zappar-camera="user-facing: true;" />
+
+    <a-entity zappar-face id="my-face-tracker">
+<!-- Include a head mask object that will make sure the user's head appears in the center of our helmet -->
+      <a-entity zappar-head-mask="face:#my-face-tracker;"></a-entity>
+   
+   
+            <!-- Include a 3D model inside our face tracker -->
+      <a-entity gltf-model=#mask position="0 0.1 1.1" scale="1 1 1"></a-entity>
+    </a-entity>
+  </a-scene>
+</body>
+</html>
